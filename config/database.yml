@@ -24,6 +24,9 @@ default: &default
 development:
   <<: *default
   database: pamelas_panel_development
+  hostname: localhost
+  username: ibteda
+  password: 954sa95poklo
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
