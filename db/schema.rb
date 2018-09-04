@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_003939) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_admins_on_username", unique: true
   end
 
   create_table "cohorts", force: :cascade do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_003939) do
     t.integer "class_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_courses_on_name", unique: true
   end
 
   create_table "instructors", force: :cascade do |t|

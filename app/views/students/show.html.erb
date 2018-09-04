@@ -1,0 +1,6 @@
+<h1><%= @student.first_name %> <%= @student.last_name %></h1>
+<ul>
+  <li>Age: <%= @student.age %></li>
+  <li>Education: <%= @student.education %></li>
+</ul>
+<%= link_to "Edit Student Info", {action: "edit"} %>

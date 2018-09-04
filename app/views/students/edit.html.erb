@@ -1,0 +1,9 @@
+<h1>Edit a student</h1>
+
+<%= form_for(@student) do |f| %>
+<%= f.text_field :first_name, placeholder: "First Name", required: true %><br><br>
+<%= f.text_field :last_name, placeholder: "Last Name", required: true %><br><br>
+<%= f.number_field :age, placeholder: "Age", max: 149, min: 18, required: true %><br><br>
+<%= f.select :education, [['High School','HS'], ['College','College'], ['Masters','Masters'], ['PHD','PHD']], {include_blank:true}, required: true %><br><br>
+<%= f.submit "Edit Student" %>
+<% end %>
