@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "admins#index"
+  root "sessions#new"
 
   get 'admins/new'
   get 'admins/edit'
