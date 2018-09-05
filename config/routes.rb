@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "admins#index"
+
   get 'admins/new'
   get 'admins/edit'
   get 'admins/show'
@@ -11,6 +13,10 @@ Rails.application.routes.draw do
   get 'students/edit'
   get 'students/show'
   get 'students/index'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
 
   resources :admins
   resources :students
