@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     @admin = Admin.find_by(username: params[:session][:username].downcase)
-    if @admin
+    if @admin && @admin.authenticate(params[:session][:password])
       log_in(@admin)
       redirect_to root_path
     else
