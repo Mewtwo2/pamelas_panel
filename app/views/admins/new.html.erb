@@ -1,7 +1,10 @@
+<h1>Add a new admin</h1>
 <%= form_for(@admin) do |f| %>
 <label>Username:</label><br>
 <%= f.text_field :username, placeholder: "Username", required: true %><br><br>
 <label>Password:</label><br>
 <%= f.password_field :password, placeholder: "Password", required: true %><br><br>
+<label>You found the lock, now use your key:</label><br>
+<%#= f.text_field :admin_key, placeholder: "Key", required: true %><br><br>
 <%= f.submit "Register" %>
 <% end %>

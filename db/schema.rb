@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_003939) do
   create_table "admins", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "admin_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["username"], name: "index_admins_on_username", unique: true
@@ -28,7 +29,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_003939) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "instructor_id"
-    t.integer "student_id", array: true
+    t.string "students", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
