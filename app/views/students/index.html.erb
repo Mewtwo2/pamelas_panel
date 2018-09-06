@@ -1,9 +1,5 @@
-<% if logged_in? %>
 <ul>
 <% @students.each do |student| %>
 <li><%= student[:first_name] + " " + student[:last_name] %></li><br>
 <% end %>
 </ul>
-<% else %>
-<h1>Please <%= link_to("Log In",login_path) %> to view students</h1>
-<% end %>

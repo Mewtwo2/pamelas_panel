@@ -33,6 +33,9 @@ class StudentsController < ApplicationController
   end
 
   def index
+    if !logged_in?
+      redirect_to root_path
+    end
     @students = Student.all
   end
 

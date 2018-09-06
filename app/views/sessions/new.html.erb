@@ -1,7 +1,27 @@
-<h1>Log In</h1>
+<!DOCTYPE html>
+<html>
 
-<%= form_for(:session, url: login_path) do |f| %>
-<%= f.text_field :username, placeholder: "Username", required: true %><br><br>
-<%= f.password_field :password, placeholder: "Password", required: true %><br><br>
-<%= f.submit "Log In" %>
-<% end %>
+  <head>
+    <title>Login to Panel</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  </head>
+
+  <body id="container">
+    <div id="login-navbar">
+      <h3>NYCDA</h3>
+      <%= link_to("Register Admin", admins_new_path) %>
+    </div>
+
+    <div id="login-content">
+      <i class="fas fa-unlock-alt fa-2x"></i>
+      <h1>LOG IN</h1>
+
+      <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.text_field :username, placeholder: "Username", required: true %><br><br>
+      <%= f.password_field :password, placeholder: "Password", required: true %><br><br>
+      <%= f.submit "Administer" %>
+    <% end %>
+  </div>
+</body>
+
+</html>

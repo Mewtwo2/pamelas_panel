@@ -1,3 +1,47 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  margin: 0;
+}
+
+#container{
+  background-color: #3D3F48;
+}
+
+#login-navbar{
+  padding: 1%;
+  // background-color: #353741;
+  background-color: yellow;
+  border-bottom: 3px solid black;
+}
+
+#login-navbar h3{
+  margin-left: 46%;
+  font-size:200%;
+  display: inline;
+  color:#353741;
+  margin-right: 33%;
+}
+
+#login-navbar a{
+  font-weight: bold;
+  text-decoration: none;
+  color: #353741;
+  left: 3%;
+}
+
+#login-navbar a:hover{
+  color:black;
+}
+
+#login-navbar a:focus{
+  outline: none;
+}
+
+#login-content{
+  color: white;
+  margin-top: 8%;
+  text-align: center;
+}

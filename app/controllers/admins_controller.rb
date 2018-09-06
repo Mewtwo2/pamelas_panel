@@ -7,11 +7,15 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
     # p "Jesus Christ"
     p "Hello World" if @admin[:admin_key] == "123456"
-
-    if @admin.save
-      redirect_to @admin
+    if @admin[:admin_key] == "123456"
+      if @admin.save
+        redirect_to @admin
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      flash[:notice] = "Incorrect Credentials"
+      redirect_to root_path
     end
   end
 
