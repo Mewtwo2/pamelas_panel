@@ -5,7 +5,7 @@ class AdminsController < ApplicationController
 
   def create
     @admin = Admin.new(admin_params)
-    if @admin[:admin_key] == "123456"
+    if @admin[:admin_key] == ENV['ADMIN_KEY']
       if @admin.save
         redirect_to @admin
       else
