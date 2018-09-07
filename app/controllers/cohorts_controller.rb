@@ -17,6 +17,7 @@ class CohortsController < ApplicationController
   end
 
   def index
+    @cohorts = Cohort.all
   end
 
   def show

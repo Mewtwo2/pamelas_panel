@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     @admin = Admin.find_by(username: params[:session][:username].downcase)
     if @admin && @admin.authenticate(params[:session][:password])
       log_in(@admin)
-      redirect_to @admin
+      # redirect_to @admin
+      redirect_to admins_path
     else
       msg = "invalid credentials"
       render "new"
