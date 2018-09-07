@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2018_08_30_003939) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer "instructor_id"
-    t.string "students", array: true
+    t.integer "student_ids", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

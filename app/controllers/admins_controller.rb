@@ -5,8 +5,6 @@ class AdminsController < ApplicationController
 
   def create
     @admin = Admin.new(admin_params)
-    # p "Jesus Christ"
-    p "Hello World" if @admin[:admin_key] == "123456"
     if @admin[:admin_key] == "123456"
       if @admin.save
         redirect_to @admin
@@ -14,7 +12,6 @@ class AdminsController < ApplicationController
         render 'new'
       end
     else
-      flash[:notice] = "Incorrect Credentials"
       redirect_to root_path
     end
   end

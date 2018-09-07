@@ -5,8 +5,8 @@ class CreateCohorts < ActiveRecord::Migration[5.2]
       t.datetime :start_date
       t.datetime :end_date
       t.integer :instructor_id
-      t.string :students, array: true
-      # t.integer :student_id, array: true
+      # t.string :students, array: true
+      t.integer :student_ids, array: true
 
       t.timestamps
     end
