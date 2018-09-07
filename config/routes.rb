@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "sessions#new"
+
   get 'cohorts/new'
   get 'cohorts/edit'
   get 'cohorts/index'
@@ -24,6 +25,8 @@ Rails.application.routes.draw do
 
   resources :admins
   resources :students
-  resources :cohorts
+  resources :cohorts do
+    resources :students
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
