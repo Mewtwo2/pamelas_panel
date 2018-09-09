@@ -1,8 +1,8 @@
 <h1>All Cohorts</h1>
 <p>Find me in app/views/cohorts/index.html.erb</p>
 
-<ul>
+<ol>
 <% @cohorts.each do |cohort| %>
   <li><%= link_to "#{cohort.name}", cohort %></li>
 <% end %>
-</ul>
+</ol>

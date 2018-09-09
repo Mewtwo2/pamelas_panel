@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
     if @student.save
       redirect_to @student
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
   def update
     @student = Student.find(params[:id])
     if @student.update(student_params)
-      p "student successfully updated"
+      p 'student successfully updated'
       redirect_to @student
     else
       render 'edit'
@@ -30,12 +30,19 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @students = Student.all
+
+    if params[:cohort_id]
+      @cohort = Cohort.find(params[:cohort_id])
+      p "Johnny"
+      p @cohort.name + " " + @cohort.name.class.to_s
+      p @cohort.instructor_id.class
+      p @cohort.student_ids.class
+      p @cohort
+    end
   end
 
   def index
-    if !logged_in?
-      redirect_to root_path
-    end
+    redirect_to root_path unless logged_in?
     @students = Student.all
   end
 

@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
       log_in(@admin)
       redirect_to admins_path
     else
-      msg = "invalid credentials"
       render "new"
     end
   end
