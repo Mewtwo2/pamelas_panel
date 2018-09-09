@@ -33,11 +33,15 @@ class StudentsController < ApplicationController
 
     if params[:cohort_id]
       @cohort = Cohort.find(params[:cohort_id])
-      p "Johnny"
-      p @cohort.name + " " + @cohort.name.class.to_s
-      p @cohort.instructor_id.class
-      p @cohort.student_ids.class
-      p @cohort
+
+      if @cohort.student_ids == nil
+        @cohort.student_ids = []
+        @cohort.student_ids << params[:id]
+        @cohort.save
+      else
+        @cohort.student_ids << params[:id]
+        @cohort.save
+      end
     end
   end
 
