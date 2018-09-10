@@ -1,8 +1,30 @@
-<h1>All Cohorts</h1>
-<p>Find me in app/views/cohorts/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>All Cohorts</h1>
 
-<ol>
-<% @cohorts.each do |cohort| %>
-  <li><%= link_to "#{cohort.name}", cohort %></li>
-<% end %>
-</ol>
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cohorts.sort.each do |cohort| %>
+          <tr>
+            <th scope="row"><%= cohort.id %></th>
+            <td><%= link_to "#{cohort.name}", cohort %></td>
+            <td><%= cohort.start_date.strftime("%b %d, %Y") %></td>
+            <td><%= cohort.end_date.strftime("%b %d, %Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>

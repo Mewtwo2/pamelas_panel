@@ -51,14 +51,6 @@ class StudentsController < ApplicationController
         end # Ends Student ID Iteration Loop
       end # Ends Student ID Array Nil If Statement Check
 
-      # @cohort_students = []
-      #
-      # @cohort.student_ids.each do |student|
-      #   @cohort_students << Student.find(student)
-      # end
-      #
-      # p "Students"
-      # p @cohort_students
       redirect_to @cohort
     end # Ends URL Check
   end # Ends Action

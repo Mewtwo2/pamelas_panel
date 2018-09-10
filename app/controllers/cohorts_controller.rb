@@ -23,6 +23,17 @@ class CohortsController < ApplicationController
   def show
     @students = Student.all
     @cohort = Cohort.find(params[:id])
+
+    @cohort_students = []
+
+    if @cohort.student_ids
+      @cohort.student_ids.each do |student|
+        @cohort_students << Student.find(student)
+      end
+    end
+
+    p "Students"
+    p @cohort_students
   end
 
   private
