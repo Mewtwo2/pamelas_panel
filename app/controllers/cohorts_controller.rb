@@ -22,6 +22,7 @@ class CohortsController < ApplicationController
 
   def show
     @students = Student.all
+    @instructors = Instructor.all
     @cohort = Cohort.find(params[:id])
 
     @cohort_students = []
@@ -32,8 +33,10 @@ class CohortsController < ApplicationController
       end
     end
 
-    p "Students"
-    p @cohort_students
+    if @cohort.instructor_id
+      @cohort_instructor = Instructor.find(@cohort.instructor_id)
+    end
+
   end
 
   private

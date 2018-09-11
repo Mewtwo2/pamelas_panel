@@ -40,7 +40,6 @@ class InstructorsController < ApplicationController
       end # Ends Instructor ID Array Nil If Statement Check
 
       @cohort.instructor_id = params[:id].to_i
-      @cohort.instructor_id.uniq! # Could not figure out why my other if statement conditional was failing
       @cohort.save
 
       redirect_to @cohort
