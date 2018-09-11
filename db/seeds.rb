@@ -27,7 +27,7 @@ end
 15.times do
   cohort = Cohort.new(
     # name: Faker::Company.ein,
-    name: Faker::Dota.team,
+    name: Faker::App.name,
     start_date: Faker::Date.backward(200),
     end_date: Faker::Date.forward(200)
   )

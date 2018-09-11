@@ -1,0 +1,8 @@
+<h1><%= @instructor.first_name %> <%= @instructor.last_name %></h1>
+<ul>
+  <li>Age: <%= @instructor.age %></li>
+  <li>Salary: <%= @instructor.salary %></li>
+  <li>Education: <%= @instructor.education %></li>
+</ul>
+<%= link_to "Edit Instructor Info", {action: "edit"} %>
+<%= link_to "Delete Instructor", {action: "destroy"}, method: :delete, data: {confirm: 'Are you sure?',remote:true}, class: 'delete-instructor' %>

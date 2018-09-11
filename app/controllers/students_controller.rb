@@ -35,7 +35,7 @@ class StudentsController < ApplicationController
       @cohort = Cohort.find(params[:cohort_id])
       if @cohort.student_ids == nil
         @cohort.student_ids = []
-        @cohort.student_ids << params[:id]
+        @cohort.student_ids << params[:id].to_i
         @cohort.save
       else
         @cohort.student_ids.each do |student|
@@ -53,12 +53,24 @@ class StudentsController < ApplicationController
 
       redirect_to @cohort
     end # Ends URL Check
+
+
   end # Ends Action
 
   def index
     redirect_to root_path unless logged_in?
     @students = Student.all
   end
+
+  def destroy
+    @student = Student.find(params[:id])
+    # @student.destroy
+    respond_to do |format|
+      format.js {redirect_to students_path}
+    end
+  end
+
+  private
 
   def student_params
     params.require(:student).permit(:first_name, :last_name, :age, :education)

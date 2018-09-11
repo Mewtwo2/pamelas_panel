@@ -10,7 +10,7 @@
     <a href="/"><button type="button" class="btn btn-primary btn-warning">
       Home
     </button></a>
-    <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#instructorModal">
+    <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#allInstructorsModal">
       Set Cohort Instructor
     </button>
     <!-- Button trigger modal -->
@@ -20,6 +20,8 @@
     <a href="/cohorts"><button type="button" class="btn btn-primary btn-warning">
       All Cohorts
     </button></a><br><br>
+
+    <h2>Cohort Students</h2>
 
     <table class="table table-dark table-striped">
       <thead>
@@ -71,6 +73,47 @@
                     <td><%= student.age %></td>
                     <td><%= student.education %></td>
                     <td><%= link_to("Add Student", cohort_student_path(@cohort.id,student.id)) %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer bg-dark">
+            <button type="button" class="btn btn-secondary btn-warning" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="allInstructorsModal" tabindex="-1" role="dialog" aria-labelledby="allInstructorsModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-warning">
+            <h5 class="modal-title" id="allInstructorsModalLabel"><strong>All Instructors</strong></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-dark table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Education</th>
+                  <th scope="col">Add to Cohort</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @instructors.each do |instructor| %>
+                  <tr>
+                    <td><%= instructor.first_name %></td>
+                    <td><%= instructor.last_name %></td>
+                    <td><%= instructor.age %></td>
+                    <td><%= instructor.education %></td>
+                    <td><%= link_to("Add Instructor", cohort_instructor_path(@cohort.id,instructor.id)) %></td>
                   </tr>
                 <% end %>
               </tbody>

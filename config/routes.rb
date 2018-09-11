@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root "sessions#new"
 
+  get 'instructors/new'
+  get 'instructors/edit'
+  get 'instructors/index'
+  get 'instructors/show'
+
   get 'cohorts/new'
   get 'cohorts/edit'
   get 'cohorts/index'
@@ -10,10 +15,12 @@ Rails.application.routes.draw do
   get 'admins/edit'
   get 'admins/show'
   get 'admins/index'
+
   get 'tests/new'
   get 'tests/edit'
   get 'tests/show'
   get 'tests/index'
+
   get 'students/new'
   get 'students/edit'
   get 'students/show'
@@ -24,7 +31,12 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :admins
-  resources :students
+  resources :students do
+    delete 'terminate' => 'students#destroy'
+  end
+  resources :instructors do
+    delete 'terminate' => 'students#destroy'
+  end
   resources :cohorts do
     resources :students
   end

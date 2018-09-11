@@ -4,3 +4,4 @@
   <li>Education: <%= @student.education %></li>
 </ul>
 <%= link_to "Edit Student Info", {action: "edit"} %>
+<%= link_to "Delete Student", {action: "destroy"}, method: :delete, data: {confirm: 'Are you sure?',remote:true}, class: 'delete-student' %>
