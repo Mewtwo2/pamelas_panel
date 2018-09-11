@@ -21,7 +21,11 @@
       All Cohorts
     </button></a><br><br>
 
+    <% if @cohort_instructor %>
     <h2>Cohort Instructor: <%= @cohort_instructor.first_name %> <%= @cohort_instructor.last_name %></h2>
+    <% end %>
+
+    <% if @cohort_students.length > 0 %>
 
     <h2>Cohort Students</h2>
 
@@ -45,6 +49,8 @@
         <% end %>
       </tbody>
     </table>
+
+    <% end %>
 
     <!-- Modal -->
     <div class="modal fade" id="allStudentsModal" tabindex="-1" role="dialog" aria-labelledby="allStudentsModalLabel" aria-hidden="true">
