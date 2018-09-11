@@ -1,11 +1,10 @@
-# README
+# Pamela's Panel
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an WIP admin panel for a school to manage their students, instructors and courses
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.4.4
 
 * System dependencies
 
@@ -20,5 +19,3 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
