@@ -17,6 +17,17 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    @course = Course.find(params[:id])
+  end
+
+  def update
+    @course = Course.find(params[:id])
+    if @course.update(course_params)
+      p 'course successfully updated'
+      redirect_to @course
+    else
+      render 'edit'
+    end
   end
 
   def show

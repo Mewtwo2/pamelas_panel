@@ -29,6 +29,7 @@
         <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#allStudentsModal">
           Add Students to Cohort
         </button>
+        <a class="btn btn-primary btn-warning" href="/cohorts/<%=params[:id]%>/edit">Edit Cohort</a>
         <a data-confirm="Are you sure?" data-remote="true" class="delete-cohort btn btn-primary btn-warning" rel="nofollow" data-method="delete" href="/cohorts/<%=params[:id]%>">Delete Cohort</a>
 
         <% if @cohort_instructor %>

@@ -23,9 +23,9 @@
 
         <%= form_for(@course) do |f| %>
           <label>Course Name:</label><br>
-          <%= f.text_field :name, placeholder: 'Name' %><br><br>
+          <%= f.text_field :name, placeholder: 'Name', required: true %><br><br>
           <label>Class Hours:</label><br>
-          <%= f.number_field :class_hours, min:20 %><br><br>
+          <%= f.number_field :class_hours, min:20, required: true %><br><br>
           <%= f.submit 'Create Course' %>
         <% end %>
       </div>
