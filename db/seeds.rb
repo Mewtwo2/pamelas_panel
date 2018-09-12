@@ -36,3 +36,19 @@ end
     cohort.save
   end
 end
+
+15.times do
+  range = Random.rand(0..3)
+  edu = ['HS','College','Masters','PHD']
+  instructor = Instructor.new(
+    first_name: Faker::App.first_name,
+    last_name: Faker::Name.last_name,
+    age: Random.rand(18..149),
+    salary: Random.rand(100001..999999),
+    education: edu[range]
+  )
+  match = Instructor.find_by(first_name: instructor.first_name)
+  if !match
+    instructor.save
+  end
+end
