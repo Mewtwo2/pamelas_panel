@@ -30,10 +30,10 @@
           Add Students to Cohort
         </button>
         <a class="btn btn-primary btn-warning" href="/cohorts/<%=params[:id]%>/edit">Edit Cohort</a>
-        <a data-confirm="Are you sure?" data-remote="true" class="delete-cohort btn btn-primary btn-warning" rel="nofollow" data-method="delete" href="/cohorts/<%=params[:id]%>">Delete Cohort</a>
+        <a data-confirm="Are you sure?" data-remote="true" class="delete-cohort btn btn-primary btn-warning" rel="nofollow" data-method="delete" href="/cohorts/<%=params[:id]%>">Delete Cohort</a><br><br><br>
 
         <% if @cohort_instructor %>
-        <h2>Cohort Instructor: <%= @cohort_instructor.first_name %> <%= @cohort_instructor.last_name %></h2>
+        <h2>Cohort Instructor: <%= @cohort_instructor.first_name %> <%= @cohort_instructor.last_name %></h2><br><br>
         <% end %>
 
         <% if @cohort_students.length > 0 %>
