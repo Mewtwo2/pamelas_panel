@@ -121,7 +121,7 @@
                     <td><%= instructor.last_name %></td>
                     <td><%= instructor.age %></td>
                     <td><%= instructor.education %></td>
-                    <td><%= link_to("Add Instructor", cohort_instructor_path(@cohort.id,instructor.id)) %></td>
+                    <td><%= link_to("Set Instructor", cohort_instructor_path(@cohort.id,instructor.id)) %></td>
                   </tr>
                 <% end %>
               </tbody>

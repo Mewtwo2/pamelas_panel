@@ -36,7 +36,7 @@ class InstructorsController < ApplicationController
     if params[:cohort_id]
       @cohort = Cohort.find(params[:cohort_id])
       if @cohort.instructor_id == nil
-        @cohort.instructor_id = []
+        @cohort.instructor_id = 0
       end # Ends Instructor ID Array Nil If Statement Check
 
       @cohort.instructor_id = params[:id].to_i
