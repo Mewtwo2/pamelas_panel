@@ -57,6 +57,29 @@ class StudentsController < ApplicationController
       redirect_to @cohort
     end # Ends URL Check
 
+    if params[:course_id]
+      @course = Course.find(params[:course_id])
+      if @course.student_ids == nil
+        @course.student_ids = []
+        @course.student_ids << params[:id].to_i
+        @course.save
+      else
+        @course.student_ids.each do |student|
+
+          if student.to_i == params[:id].to_i
+              p "This student is already in the Course"
+          end
+
+          @course.student_ids << params[:id].to_i
+          @course.student_ids.uniq! # Could not figure out why my other if statement conditional was failing
+          @course.save
+
+        end # Ends Student ID Iteration Loop
+      end # Ends Student ID Array Nil If Statement Check
+
+      redirect_to @course
+    end # Ends URL Check
+
 
   end # Ends Action
 

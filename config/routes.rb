@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'courses/new'
+  get 'courses/edit'
+  get 'courses/show'
+  get 'courses/index'
   root "sessions#new"
 
   get 'instructors/new'
@@ -38,6 +42,10 @@ Rails.application.routes.draw do
     delete 'terminate' => 'students#destroy'
   end
   resources :cohorts do
+    resources :students
+    resources :instructors
+  end
+  resources :courses do
     resources :students
     resources :instructors
   end

@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2018_08_30_003939) do
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.integer "class_hours"
+    t.integer "student_ids", array: true
+    t.integer "instructor_ids", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_courses_on_name", unique: true

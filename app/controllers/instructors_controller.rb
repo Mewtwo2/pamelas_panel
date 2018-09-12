@@ -48,6 +48,29 @@ class InstructorsController < ApplicationController
 
       redirect_to @cohort
     end # Ends URL Check
+
+    if params[:course_id]
+      @course = Course.find(params[:course_id])
+      if @course.instructor_ids == nil
+        @course.instructor_ids = []
+        @course.instructor_ids << params[:id].to_i
+        @course.save
+      else
+        @course.instructor_ids.each do |instructor|
+
+          if instructor.to_i == params[:id].to_i
+              p "This instructor is already in the Course"
+          end
+
+          @course.instructor_ids << params[:id].to_i
+          @course.instructor_ids.uniq! # Could not figure out why my other if statement conditional was failing
+          @course.save
+
+        end # Ends Student ID Iteration Loop
+      end # Ends Student ID Array Nil If Statement Check
+
+      redirect_to @course
+    end # Ends URL Check
   end
 
   def destroy
