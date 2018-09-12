@@ -32,7 +32,7 @@ class AdminsController < ApplicationController
   private
 
   def admin_params
-    params.require(:admin).permit(:username, :password, :admin_key)
+    params.require(:admin).permit(:username, :password, :password_confirmation, :admin_key)
   end
 
 end
