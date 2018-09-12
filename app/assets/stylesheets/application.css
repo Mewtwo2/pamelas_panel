@@ -41,7 +41,6 @@
 
  #admin-panel-nav li{
    margin-bottom: 5%;
-   border-bottom: 1px solid #f6a821;
  }
 
 #admin-panel-nav a{
@@ -63,4 +62,9 @@
    margin-left: 18vw;
    width:80vw;
    text-align: center;
+ }
+
+ #admin-panel-content ul{
+   list-style-type: none;
+   padding-right: 3%;
  }
