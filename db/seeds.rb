@@ -41,7 +41,7 @@ end
   range = Random.rand(0..3)
   edu = ['HS','College','Masters','PHD']
   instructor = Instructor.new(
-    first_name: Faker::App.first_name,
+    first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     age: Random.rand(18..149),
     salary: Random.rand(100001..999999),

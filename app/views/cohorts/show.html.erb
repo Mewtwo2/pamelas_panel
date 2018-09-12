@@ -1,139 +1,155 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   </head>
   <body>
-    <h1>Cohort: <%= @cohort.name %></h1>
-    <h3><%= @cohort.start_date.strftime("Start Date: %b %d, %Y") %></h3>
-    <h3><%= @cohort.end_date.strftime("End Date: %b %d, %Y") %></h3>
-    <a href="/"><button type="button" class="btn btn-primary btn-warning">
-      Home
-    </button></a>
-    <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#allInstructorsModal">
-      Set Cohort Instructor
-    </button>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#allStudentsModal">
-      Add Students to Cohort
-    </button>
-    <a href="/cohorts"><button type="button" class="btn btn-primary btn-warning">
-      All Cohorts
-    </button></a><br><br>
+    <div id="god-container">
+      <div id="admin-panel-nav">
+        <i class="fab fa-joomla fa-4x"></i>
+        <ul>
+          <li><%= link_to('Home', '/') %></li>
+          <li><%= link_to('Instructors', '/instructors') %></li>
+          <li><%= link_to('Cohorts', '/cohorts') %></li>
+          <li><%= link_to('Students', '/students') %></li>
+          <li><i class="fas fa-sign-out-alt">  <%= link_to("Log Out",logout_path,method: :delete, data: {confirm: 'Are you sure?'}) %></i></li>
+        </ul>
+      </div>
 
-    <% if @cohort_instructor %>
-    <h2>Cohort Instructor: <%= @cohort_instructor.first_name %> <%= @cohort_instructor.last_name %></h2>
-    <% end %>
+      <div id="admin-panel-content">
+        <h1>Cohort: <%= @cohort.name %></h1>
+        <h3><%= @cohort.start_date.strftime("Start Date: %b %d, %Y") %></h3>
+        <h3><%= @cohort.end_date.strftime("End Date: %b %d, %Y") %></h3>
+        <a href="/"><button type="button" class="btn btn-primary btn-warning">
+          Home
+        </button></a>
+        <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#allInstructorsModal">
+          Set Cohort Instructor
+        </button>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#allStudentsModal">
+          Add Students to Cohort
+        </button>
+        <a href="/cohorts"><button type="button" class="btn btn-primary btn-warning">
+          All Cohorts
+        </button></a><br><br>
 
-    <% if @cohort_students.length > 0 %>
-
-    <h2>Cohort Students</h2>
-
-    <table class="table table-dark table-striped">
-      <thead>
-        <tr>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Age</th>
-          <th scope="col">Education</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @cohort_students.each do |student| %>
-          <tr>
-            <td><%= student.first_name %></td>
-            <td><%= student.last_name %></td>
-            <td><%= student.age %></td>
-            <td><%= student.education %></td>
-          </tr>
+        <% if @cohort_instructor %>
+        <h2>Cohort Instructor: <%= @cohort_instructor.first_name %> <%= @cohort_instructor.last_name %></h2>
         <% end %>
-      </tbody>
-    </table>
 
-    <% end %>
+        <% if @cohort_students.length > 0 %>
 
-    <!-- Modal -->
-    <div class="modal fade" id="allStudentsModal" tabindex="-1" role="dialog" aria-labelledby="allStudentsModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header bg-dark text-warning">
-            <h5 class="modal-title" id="allStudentsModalLabel"><strong>All Students</strong></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <table class="table table-dark table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Age</th>
-                  <th scope="col">Education</th>
-                  <th scope="col">Add to Cohort</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @students.each do |student| %>
-                  <tr>
-                    <td><%= student.first_name %></td>
-                    <td><%= student.last_name %></td>
-                    <td><%= student.age %></td>
-                    <td><%= student.education %></td>
-                    <td><%= link_to("Add Student", cohort_student_path(@cohort.id,student.id)) %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-          <div class="modal-footer bg-dark">
-            <button type="button" class="btn btn-secondary btn-warning" data-dismiss="modal">Close</button>
+        <h2>Cohort Students</h2>
+
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Age</th>
+              <th scope="col">Education</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @cohort_students.each do |student| %>
+              <tr>
+                <td><%= student.first_name %></td>
+                <td><%= student.last_name %></td>
+                <td><%= student.age %></td>
+                <td><%= student.education %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <% end %>
+
+        <!-- Modal -->
+        <div class="modal fade" id="allStudentsModal" tabindex="-1" role="dialog" aria-labelledby="allStudentsModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header bg-dark text-warning">
+                <h5 class="modal-title" id="allStudentsModalLabel"><strong>All Students</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <table class="table table-dark table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Age</th>
+                      <th scope="col">Education</th>
+                      <th scope="col">Add to Cohort</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @students.each do |student| %>
+                      <tr>
+                        <td><%= student.first_name %></td>
+                        <td><%= student.last_name %></td>
+                        <td><%= student.age %></td>
+                        <td><%= student.education %></td>
+                        <td><%= link_to("Add Student", cohort_student_path(@cohort.id,student.id)) %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal-footer bg-dark">
+                <button type="button" class="btn btn-secondary btn-warning" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="allInstructorsModal" tabindex="-1" role="dialog" aria-labelledby="allInstructorsModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header bg-dark text-warning">
-            <h5 class="modal-title" id="allInstructorsModalLabel"><strong>All Instructors</strong></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <table class="table table-dark table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Age</th>
-                  <th scope="col">Education</th>
-                  <th scope="col">Add to Cohort</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @instructors.each do |instructor| %>
-                  <tr>
-                    <td><%= instructor.first_name %></td>
-                    <td><%= instructor.last_name %></td>
-                    <td><%= instructor.age %></td>
-                    <td><%= instructor.education %></td>
-                    <td><%= link_to("Set Instructor", cohort_instructor_path(@cohort.id,instructor.id)) %></td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-          <div class="modal-footer bg-dark">
-            <button type="button" class="btn btn-secondary btn-warning" data-dismiss="modal">Close</button>
+        <!-- Modal -->
+        <div class="modal fade" id="allInstructorsModal" tabindex="-1" role="dialog" aria-labelledby="allInstructorsModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header bg-dark text-warning">
+                <h5 class="modal-title" id="allInstructorsModalLabel"><strong>All Instructors</strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <table class="table table-dark table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Age</th>
+                      <th scope="col">Education</th>
+                      <th scope="col">Add to Cohort</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @instructors.each do |instructor| %>
+                      <tr>
+                        <td><%= instructor.first_name %></td>
+                        <td><%= instructor.last_name %></td>
+                        <td><%= instructor.age %></td>
+                        <td><%= instructor.education %></td>
+                        <td><%= link_to("Set Instructor", cohort_instructor_path(@cohort.id,instructor.id)) %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+              <div class="modal-footer bg-dark">
+                <button type="button" class="btn btn-secondary btn-warning" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
+      </div> <!-- Ends the "content" div -->
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
