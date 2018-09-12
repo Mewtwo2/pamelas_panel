@@ -9,12 +9,12 @@
       <div id="admin-panel-nav">
         <i class="fab fa-joomla fa-4x"></i>
         <ul>
-          <li><%= link_to('Home', '/') %></li>
+          <li><i class="fas fa-home fa-sm"></i> <%= link_to('Home', '/') %></li>
           <li><%= link_to('Instructors', '/instructors') %></li>
           <li><%= link_to('Cohorts', '/cohorts') %></li>
           <li><%= link_to('Courses', '/courses') %></li>
           <li><%= link_to('Students', '/students') %></li>
-          <li><i class="fas fa-sign-out-alt">  <%= link_to("Log Out",logout_path,method: :delete, data: {confirm: 'Are you sure?'}) %></i></li>
+          <li><i class="fas fa-sign-out-alt"></i>  <%= link_to("Log Out",logout_path,method: :delete, data: {confirm: 'Are you sure?'}) %></li>
         </ul>
       </div>
 
