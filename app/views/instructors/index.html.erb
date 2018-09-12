@@ -19,6 +19,7 @@
 
       <div id="admin-panel-content">
         <h1>All Instructors</h1>
+        <%= link_to 'Add Instructor','instructors/new' %>
 
         <table class="table table-dark table-striped">
           <thead>
@@ -26,6 +27,7 @@
               <th scope="col">#</th>
               <th scope="col">Name</th>
               <th scope="col">Age</th>
+              <th scope="col">Salary</th>
               <th scope="col">Education</th>
             </tr>
           </thead>
@@ -36,6 +38,7 @@
                 <td><%= link_to "#{instructor.first_name} #{instructor.last_name}", instructor %></td>
                 <td><%= instructor.age %></td>
                 <td><%= instructor.salary %></td>
+                <td><%= instructor.education %></td>
               </tr>
             <% end %>
           </tbody>

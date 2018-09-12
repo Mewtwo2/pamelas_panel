@@ -1,4 +1,7 @@
 class InstructorsController < ApplicationController
+
+  before_action :is_logged
+
   def new
     @instructor = Instructor.new
   end
@@ -59,5 +62,9 @@ class InstructorsController < ApplicationController
 
   def instructor_params
     params.require(:instructor).permit(:first_name,:last_name,:age,:salary,:education)
+  end
+
+  def is_logged
+    redirect_to root_path unless logged_in?
   end
 end

@@ -1,4 +1,7 @@
 class StudentsController < ApplicationController
+
+  before_action :is_logged
+
   def new
     @student = Student.new
   end
@@ -58,7 +61,6 @@ class StudentsController < ApplicationController
   end # Ends Action
 
   def index
-    redirect_to root_path unless logged_in?
     @students = Student.all
   end
 
@@ -74,5 +76,9 @@ class StudentsController < ApplicationController
 
   def student_params
     params.require(:student).permit(:first_name, :last_name, :age, :education)
+  end
+
+  def is_logged
+    redirect_to root_path unless logged_in?
   end
 end

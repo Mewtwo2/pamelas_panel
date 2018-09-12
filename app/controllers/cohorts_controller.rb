@@ -1,4 +1,7 @@
 class CohortsController < ApplicationController
+
+  before_action :is_logged
+
   def new
     @cohort = Cohort.new
   end
@@ -43,5 +46,9 @@ class CohortsController < ApplicationController
 
   def cohort_params
     params.require(:cohort).permit(:name,:start_date,:end_date)
+  end
+
+  def is_logged
+    redirect_to root_path unless logged_in?
   end
 end

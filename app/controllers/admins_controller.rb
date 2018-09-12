@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+
   def new
     @admin = Admin.new
   end
@@ -16,15 +17,20 @@ class AdminsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    redirect_to root_path
+  end
 
   def show
-    @admin = Admin.find(params[:id])
+    redirect_to root_path
   end
 
   def index; end
 
+  private
+
   def admin_params
     params.require(:admin).permit(:username, :password, :admin_key)
   end
+
 end
