@@ -1,3 +1,43 @@
 // Place all the styles related to the Admins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  margin: 0;
+}
+
+#container{
+  background-color: #3D3F48;
+}
+
+#logged-navbar{
+  padding: 1%;
+  background-color: #f6ff00;
+  border-bottom: 3px solid black;
+}
+
+#logged-navbar h3{
+  margin-left: 46%;
+  font-size:200%;
+  display: inline;
+  color:#353741;
+  margin-right: 33%;
+}
+
+#logged-content{
+  color: white;
+  margin-top: 8%;
+  text-align: center;
+}
+
+#logged-content a{
+  background-color: #f6ff00;
+  border-radius: 6px;
+  padding: 1vh;
+  color: #363A3D;
+  text-decoration: none;
+}
+
+#logged-content a:hover{
+  background-color: #E0A800;
+}

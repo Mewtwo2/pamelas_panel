@@ -1,9 +1,28 @@
-<% if logged_in? %>
-  <h1>You are Logged In</h1>
-  <h3><%= link_to("View Students",students_path)%></h3>
-  <h3><%= link_to("View Cohorts",cohorts_path)%></h3>
-  <%= link_to("Log Out",logout_path,method: :delete, data: {confirm: 'Are you sure?'}) %>
-<% else %>
-  <h1>Log in to access panel</h1>
-  <%= link_to("Log In",login_path) %>
-<% end %>
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  </head>
+
+  <body id="container">
+    <div id="logged-navbar">
+      <h3>NYCDA</h3>
+    </div>
+
+    <div id="logged-content">
+      <i class="fas fa-unlock-alt fa-2x"></i>
+      <% if logged_in? %>
+        <h1>You are Logged In</h1>
+        <h3><%= link_to("View Students",students_path)%></h3>
+        <h3><%= link_to("View Cohorts",cohorts_path)%></h3>
+        <%= link_to("Log Out",logout_path,method: :delete, data: {confirm: 'Are you sure?'}) %>
+      <% else %>
+        <h1>Log in to access panel</h1>
+        <%= link_to("Log In",login_path) %>
+      <% end %>
+  </div>
+</body>
+
+</html>
