@@ -28,7 +28,12 @@ class CoursesController < ApplicationController
 
     if @course.student_ids
       @course.student_ids.each do |student|
-        @course_students << Student.find(student)
+        stu = Student.where(id: student).first
+        if stu.blank?
+          flash[:notice] = "Some Students not found or removed"
+        else
+          @course_students << stu
+        end
       end
     end
 
@@ -36,13 +41,27 @@ class CoursesController < ApplicationController
 
     if @course.instructor_ids
       @course.instructor_ids.each do |instructor|
-        @course_instructors << Instructor.find(instructor)
+        stu = Instructor.where(id: instructor).first
+        if stu.blank?
+          flash[:notice] = "Some Students not found or removed"
+        else
+          @course_instructors << stu
+        end
       end
     end
+
   end
 
   def index
     @courses = Course.all
+  end
+
+  def destroy
+    @course = Course.find(params[:id])
+    @course.destroy
+    respond_to do |format|
+      format.js {redirect_to courses_path}
+    end
   end
 
   private

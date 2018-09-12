@@ -25,7 +25,9 @@ class AdminsController < ApplicationController
     redirect_to root_path
   end
 
-  def index; end
+  def index
+    redirect_to root_path unless logged_in?
+  end
 
   private
 

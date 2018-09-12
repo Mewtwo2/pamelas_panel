@@ -21,9 +21,6 @@
       <div id="admin-panel-content">
         <h1>Course: <%= @course.name %></h1>
         <h3>Class Hours: <%= @course.class_hours %></h3>
-        <a href="/"><button type="button" class="btn btn-primary btn-warning">
-          Home
-        </button></a>
         <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#allInstructorsModal">
           Add Instructors to Course
         </button>
@@ -31,9 +28,7 @@
         <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#allStudentsModal">
           Add Students to Course
         </button>
-        <a href="/courses"><button type="button" class="btn btn-primary btn-warning">
-          All Courses
-        </button></a><br><br>
+        <a data-confirm="Are you sure?" data-remote="true" class="delete-course btn btn-primary btn-warning" rel="nofollow" data-method="delete" href="/courses/<%=params[:id]%>">Delete Course</a>
 
         <% if @course_instructors.length > 0 %>
           <h2>Course Instructors</h2>

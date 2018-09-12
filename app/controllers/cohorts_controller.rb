@@ -32,14 +32,30 @@ class CohortsController < ApplicationController
 
     if @cohort.student_ids
       @cohort.student_ids.each do |student|
-        @cohort_students << Student.find(student)
+        stu = Student.where(id: student).first
+        if stu.blank?
+          flash[:notice] = "Some Students not found or removed"
+        else
+          @cohort_students << stu
+        end
       end
     end
 
     if @cohort.instructor_id
-      @cohort_instructor = Instructor.find(@cohort.instructor_id)
+      @cohort_instructor = Instructor.where(id: @cohort.instructor_id).first
+      if @cohort_instructor.blank?
+        flash[:notice] = "Instructor not found or removed"
+      end
     end
 
+  end
+
+  def destroy
+    @cohort = Cohort.find(params[:id])
+    @cohort.destroy
+    respond_to do |format|
+      format.js {redirect_to cohorts_path}
+    end
   end
 
   private

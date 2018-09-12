@@ -22,9 +22,6 @@
         <h1>Cohort: <%= @cohort.name %></h1>
         <h3><%= @cohort.start_date.strftime("Start Date: %b %d, %Y") %></h3>
         <h3><%= @cohort.end_date.strftime("End Date: %b %d, %Y") %></h3>
-        <a href="/"><button type="button" class="btn btn-primary btn-warning">
-          Home
-        </button></a>
         <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#allInstructorsModal">
           Set Cohort Instructor
         </button>
@@ -32,9 +29,7 @@
         <button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#allStudentsModal">
           Add Students to Cohort
         </button>
-        <a href="/cohorts"><button type="button" class="btn btn-primary btn-warning">
-          All Cohorts
-        </button></a><br><br>
+        <a data-confirm="Are you sure?" data-remote="true" class="delete-cohort btn btn-primary btn-warning" rel="nofollow" data-method="delete" href="/cohorts/<%=params[:id]%>">Delete Cohort</a>
 
         <% if @cohort_instructor %>
         <h2>Cohort Instructor: <%= @cohort_instructor.first_name %> <%= @cohort_instructor.last_name %></h2>
