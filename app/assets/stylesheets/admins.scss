@@ -2,36 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#body-container{
-  // background-color: #3D3F48;
+#body-container {
   margin: 0;
 }
 
-.logged-navbar{
+.register-form-content {
+  // for overriding the #login-content on sessions.scss
+  margin-top: 3% !important;
+}
+
+.logged-navbar {
   padding: 1%;
   background-color: #f6ff00;
   border-bottom: 3px solid black;
 }
 
-.logged-navbar h3{
+.logged-navbar h3 {
   margin-left: 35%;
-  font-size:200%;
+  font-size: 200%;
   display: inline;
-  color:#353741;
+  color: #353741;
   margin-right: 33%;
 }
 
-#logged-navbar{ // for the navbar specifiacally on the admins index page
+#logged-navbar {
+  // for the navbar specifically on the admins index page
   border: 2px solid #f5a212;
 }
 
-#logged-content{
+#logged-content {
   color: #3D3F48;
   margin-top: 8%;
   text-align: center;
 }
 
-#logged-content a{
+#logged-content a {
   background-color: #f6ff00;
   border-radius: 6px;
   padding: 2vh;
@@ -39,6 +44,6 @@
   text-decoration: none;
 }
 
-#logged-content a:hover{
+#logged-content a:hover {
   background-color: #E0A800;
 }

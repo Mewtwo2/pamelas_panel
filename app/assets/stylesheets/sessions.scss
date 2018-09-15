@@ -2,40 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body{
+body {
   margin: 0;
 }
 
-#login-navbar{
+#login-navbar {
   padding: 1%;
   background-color: #f6ff00;
   border-bottom: 3px solid #f5a212;
 }
 
-#login-navbar h3{
-  margin-left: 46%;
-  font-size:200%;
+#login-navbar h3 {
+  font-size: 200%;
   display: inline;
-  color:#353741;
-  margin-right: 33%;
+  color: #353741;
 }
 
-#login-navbar a{
+#login-navbar a {
   font-weight: bold;
   text-decoration: none;
   color: #353741;
-  left: 3%;
 }
 
-#login-navbar a:hover{
-  color:black;
+#login-navbar a:hover {
+  color: black;
 }
 
-#login-navbar a:focus{
+#login-navbar a:focus {
   outline: none;
 }
 
-#login-content{
+#login-content {
   color: #353741;
   margin-top: 8%;
   text-align: center;

@@ -10,7 +10,7 @@
       <h3><%= link_to("NYCDA", root_path) %></h3>
     </div>
 
-    <div id="login-content">
+    <div id="login-content" class="register-form-content">
       <i class="fas fa-unlock-alt fa-2x"></i>
       <h1>Add a new admin</h1>
       <%= form_for(@admin) do |f| %>
@@ -19,11 +19,12 @@
       <label>Password:</label><br>
       <%= f.password_field :password, placeholder: "Password", required: true %><br><br>
       <label>Confirm Password:</label><br>
-      <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', required: true %><br><br>
+      <%= f.password_field :password_confirmation, placeholder: 'Password', required: true %><br><br>
       <label>You found the lock, now use the key:</label><br>
       <%= f.password_field :admin_key, placeholder: "Key", required: true %><br><br>
       <%= f.submit "Register" %>
-      <% end %>
+      <% end %><br><br>
+      Already have an account? <%= link_to("Log In", root_path)%>
     </div>
 </body>
 

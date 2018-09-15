@@ -14,61 +14,82 @@
  *= require_self
  */
 
- #god-container{
-   width: 100%;
- }
-
- #admin-panel-nav{
-   position: fixed;
-   background-color: #2A2D35;
-   height:100vh;
-   width:17vw;
- }
-
- .fa-joomla{
-   color:#F5A212;
-   margin-bottom: 15%;
-   margin-left:37%;
- }
-
- .fa-home{
-   color:#F5A212;
- }
-
- #admin-panel-nav ul{
-   font-family: sans-serif;
-   font-size: 120%;
-   color:white;
-   list-style-type: none;
-   padding-left: 3%;
- }
-
- #admin-panel-nav li{
-   margin-bottom: 5%;
- }
-
-#admin-panel-nav a{
-   text-decoration: none;
-   color: white;
+input[type="text"], input[type="password"], input[type="number"], input[type="date"] {
+  padding: .4%;
+  border: 2px solid #2A2D35;
+  border-radius: 3px;
 }
 
-#admin-panel-nav a:hover{
-   color: #f6a821;
+input[type="submit"] {
+  background-color: #f6ff00;
+  font-size: 100%;
+  border: none;
+  border-radius: 6px;
+  padding: 2vh;
+  color: #363A3D;
+  text-decoration: none;
 }
 
- #selected-admin-link{
-   font-weight: bold;
-   font-size: 110%;
-   border-right: 10px solid #f6a821;
- }
+input[type="submit"]:hover {
+  background-color: #E0A800;
+  cursor: pointer;
+}
 
- #admin-panel-content{
-   margin-left: 18vw;
-   width:80vw;
-   text-align: center;
- }
+#god-container {
+  width: 100%;
+}
 
- #admin-panel-content ul{
-   list-style-type: none;
-   padding-right: 3%;
- }
+#admin-panel-nav {
+  position: fixed;
+  background-color: #2A2D35;
+  height: 100vh;
+  width: 17vw;
+}
+
+.fa-joomla {
+  color: #F5A212;
+  margin-bottom: 15%;
+  margin-left: 37%;
+}
+
+.fa-home {
+  color: #F5A212;
+}
+
+#admin-panel-nav ul {
+  font-family: sans-serif;
+  font-size: 120%;
+  color: white;
+  list-style-type: none;
+  padding-left: 3%;
+}
+
+#admin-panel-nav li {
+  margin-bottom: 5%;
+}
+
+#admin-panel-nav a {
+  text-decoration: none;
+  color: white;
+}
+
+#admin-panel-nav a:hover {
+  color: #f6a821;
+}
+
+#selected-admin-link {
+  font-weight: bold;
+  font-size: 110%;
+  border-right: 10px solid #f6a821;
+}
+
+#admin-panel-content {
+  margin-left: 18vw;
+  width: 80vw;
+  text-align: center;
+}
+
+#admin-panel-content ul {
+  list-style-type: none;
+  padding-right: 3%;
+}
