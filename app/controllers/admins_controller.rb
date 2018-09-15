@@ -8,6 +8,7 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
     if @admin[:admin_key] == ENV['ADMIN_KEY']
       if @admin.save
+        log_in(@admin)
         redirect_to @admin
       else
         render 'new'
